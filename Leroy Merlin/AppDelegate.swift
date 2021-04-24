@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  Leroy Merlin
-//
-//  Created by Alexandr on 24.04.2021.
-//
 
 import UIKit
 
