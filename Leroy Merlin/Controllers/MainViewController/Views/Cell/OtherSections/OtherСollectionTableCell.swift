@@ -86,7 +86,7 @@ extension OtherСollectionTableCell: ConfigurableWithAny, CellIdentifiable  {
         
         headerName.text = items?.heading
         
-        self.items = items?.models
+        self.items = items?.items
         
     }
     

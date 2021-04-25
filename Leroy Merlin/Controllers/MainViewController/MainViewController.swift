@@ -126,9 +126,9 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
             return []
         }
         
-        let firstSection = FirstСollectionTableCellModel(models: dataTemplate[0].items)
-        let secondSection = OtherСollectionTableCellModel(heading: dataTemplate[1].heading, models: dataTemplate[1].items)
-        let thirdSection = OtherСollectionTableCellModel(heading: dataTemplate[2].heading, models: dataTemplate[2].items)
+        let firstSection = FirstСollectionTableCellModel(items: dataTemplate[0].items)
+        let secondSection = OtherСollectionTableCellModel(heading: dataTemplate[1].heading, items: dataTemplate[1].items)
+        let thirdSection = OtherСollectionTableCellModel(heading: dataTemplate[2].heading, items: dataTemplate[2].items)
         
         let cellModel: [TableViewCellModel] = [firstSection,secondSection,thirdSection]
         

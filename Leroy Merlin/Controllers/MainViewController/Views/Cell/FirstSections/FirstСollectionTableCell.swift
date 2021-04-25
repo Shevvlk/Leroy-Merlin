@@ -74,7 +74,7 @@ extension FirstСollectionTableCell: ConfigurableWithAny, CellIdentifiable  {
     func confugire(with object: Any) {
         
         let items = object as? FirstСollectionTableCellModel
-        self.items = items?.models
+        self.items = items?.items
         
     }
 }

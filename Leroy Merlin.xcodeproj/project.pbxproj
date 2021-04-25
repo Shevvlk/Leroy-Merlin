@@ -13,6 +13,7 @@
 		A81FE8632634ABEB00AAD448 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81FE8622634ABEB00AAD448 /* Model.swift */; };
 		A81FE8672634AEE300AAD448 /* DataTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81FE8662634AEE300AAD448 /* DataTemplate.swift */; };
 		A81FE86A2634AFAE00AAD448 /* Bundle + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81FE8692634AFAE00AAD448 /* Bundle + Extension.swift */; };
+		A83C6C3B2634FB8D00D1AEA3 /* OtherСollectionTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83C6C3A2634FB8D00D1AEA3 /* OtherСollectionTableCellModel.swift */; };
 		A86EB1DD2634E53900E21A11 /* FirstСollectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86EB1DC2634E53900E21A11 /* FirstСollectionTableCell.swift */; };
 		A86EB1E02634E55F00E21A11 /* FirstCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86EB1DF2634E55F00E21A11 /* FirstCollectionCell.swift */; };
 		A8A9F043263491AE00D7B98D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9F042263491AE00D7B98D /* AppDelegate.swift */; };
@@ -27,7 +28,6 @@
 		A8A9F067263493FB00D7B98D /* TextFieldNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9F066263493FB00D7B98D /* TextFieldNavbar.swift */; };
 		A8A9F06A2634942600D7B98D /* BarcodeViewNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9F0692634942600D7B98D /* BarcodeViewNavBar.swift */; };
 		A8A9F06D2634945400D7B98D /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A9F06C2634945400D7B98D /* SearchResultsController.swift */; };
-		A8ECE5782634F6D600340601 /* OtherСollectionTableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ECE5772634F6D600340601 /* OtherСollectionTableCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +37,7 @@
 		A81FE8622634ABEB00AAD448 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A81FE8662634AEE300AAD448 /* DataTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTemplate.swift; sourceTree = "<group>"; };
 		A81FE8692634AFAE00AAD448 /* Bundle + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle + Extension.swift"; sourceTree = "<group>"; };
+		A83C6C3A2634FB8D00D1AEA3 /* OtherСollectionTableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtherСollectionTableCellModel.swift"; sourceTree = "<group>"; };
 		A86EB1DC2634E53900E21A11 /* FirstСollectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirstСollectionTableCell.swift"; sourceTree = "<group>"; };
 		A86EB1DF2634E55F00E21A11 /* FirstCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCollectionCell.swift; sourceTree = "<group>"; };
 		A8A9F03F263491AE00D7B98D /* Leroy Merlin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Leroy Merlin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +54,6 @@
 		A8A9F066263493FB00D7B98D /* TextFieldNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldNavbar.swift; sourceTree = "<group>"; };
 		A8A9F0692634942600D7B98D /* BarcodeViewNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewNavBar.swift; sourceTree = "<group>"; };
 		A8A9F06C2634945400D7B98D /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
-		A8ECE5772634F6D600340601 /* OtherСollectionTableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OtherСollectionTableCellModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A81FE8592634A7D100AAD448 /* FirstСollectionTableCellModel.swift */,
-				A8ECE5772634F6D600340601 /* OtherСollectionTableCellModel.swift */,
+				A83C6C3A2634FB8D00D1AEA3 /* OtherСollectionTableCellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +274,7 @@
 				A8A9F061263493BD00D7B98D /* OtherСollectionTableCell.swift in Sources */,
 				A86EB1E02634E55F00E21A11 /* FirstCollectionCell.swift in Sources */,
 				A8A9F0592634929300D7B98D /* TabBarControllerAssembly.swift in Sources */,
+				A83C6C3B2634FB8D00D1AEA3 /* OtherСollectionTableCellModel.swift in Sources */,
 				A81FE8562634A73100AAD448 /* Protocols.swift in Sources */,
 				A81FE85A2634A7D100AAD448 /* FirstСollectionTableCellModel.swift in Sources */,
 				A81FE8672634AEE300AAD448 /* DataTemplate.swift in Sources */,
@@ -286,7 +287,6 @@
 				A8A9F06A2634942600D7B98D /* BarcodeViewNavBar.swift in Sources */,
 				A81FE86A2634AFAE00AAD448 /* Bundle + Extension.swift in Sources */,
 				A8A9F06D2634945400D7B98D /* SearchResultsController.swift in Sources */,
-				A8ECE5782634F6D600340601 /* OtherСollectionTableCellModel.swift in Sources */,
 				A8A9F05E2634939E00D7B98D /* CustomNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
