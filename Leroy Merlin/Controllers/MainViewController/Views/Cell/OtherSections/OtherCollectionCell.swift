@@ -1,9 +1,9 @@
 
 import UIKit
 
-final class CollectionViewCell: UICollectionViewCell {
+final class OtherCollectionCell: UICollectionViewCell {
     
-    let nameLabel: UILabel = {
+    let priceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -11,7 +11,7 @@ final class CollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let  descriptionLabel: UILabel = {
+    let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -22,7 +22,6 @@ final class CollectionViewCell: UICollectionViewCell {
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 5
-        imageView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -30,9 +29,9 @@ final class CollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.addSubview(descriptionLabel)
-        self.contentView.addSubview(iconImageView)
         self.contentView.addSubview(nameLabel)
+        self.contentView.addSubview(iconImageView)
+        self.contentView.addSubview(priceLabel)
         setupConstraints()
     }
     
@@ -46,15 +45,15 @@ final class CollectionViewCell: UICollectionViewCell {
         iconImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
         
-        nameLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 3).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 3).isActive = true
+        priceLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
+        priceLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
+        priceLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
         
-        descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 3).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        descriptionLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 3).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        nameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
 }

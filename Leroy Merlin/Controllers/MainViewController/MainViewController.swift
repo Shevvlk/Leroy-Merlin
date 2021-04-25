@@ -14,7 +14,6 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
         return tableView
     }()
     
-    
     let customNavigationBar: CustomNavigationBar = {
         let customNavigationBar = CustomNavigationBar()
         customNavigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -22,9 +21,14 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
     }()
     
     let searchController = SearchResultsController()
-    
     var heightAnchorNavigationBar: NSLayoutConstraint! = nil
+    let dataTemplate = DataTemplate().dataRequest()
     
+    private var cellModels: [TableViewCellModel] = [] {
+        willSet(newValue) {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,7 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
         
         setupConstraint()
         
-        tableView.register(СollectionTableViewCell.self, forCellReuseIdentifier: "Cell")
+        cellModels = createCellModels()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,22 +56,27 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return cellModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! СollectionTableViewCell
-        if indexPath.row == 0 {
-            cell.descriptionLabel.text = nil
-        }
-        return cell
         
+        let cellModel = cellModels[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellType.reuseId, for: indexPath)
+        
+        guard let configurableCell = cell as? (UITableViewCell & ConfigurableWithAny) else {
+            return cell
+        }
+        
+        configurableCell.confugire(with: cellModel)
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 280
+        return cellModels[indexPath.row].cellHeight
     }
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -111,6 +120,25 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    private func createCellModels() -> [TableViewCellModel] {
+        
+        guard let dataTemplate  = dataTemplate else {
+            return []
+        }
+        
+        let firstSection = FirstСollectionTableCellModel(models: dataTemplate[0].items)
+        let secondSection = OtherСollectionTableCellModel(heading: dataTemplate[1].heading, models: dataTemplate[1].items)
+        let thirdSection = OtherСollectionTableCellModel(heading: dataTemplate[2].heading, models: dataTemplate[2].items)
+        
+        let cellModel: [TableViewCellModel] = [firstSection,secondSection,thirdSection]
+        
+        cellModel.forEach({ model in
+            tableView.register(model.cellType, forCellReuseIdentifier: model.cellType.reuseId)
+        })
+        
+        return cellModel
+    }
+    
     func setupConstraint() {
         
         customNavigationBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -123,9 +151,7 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
     }
-    
     
 }
 

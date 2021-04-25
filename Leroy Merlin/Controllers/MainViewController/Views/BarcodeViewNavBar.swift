@@ -29,7 +29,7 @@ final class BarcodeViewNavBar: UIView {
         barcodeImageViewNavBar.heightAnchor.constraint(equalToConstant: 25).isActive = true
         barcodeImageViewNavBar.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         barcodeImageViewNavBar.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-
+        
     }
     
 }

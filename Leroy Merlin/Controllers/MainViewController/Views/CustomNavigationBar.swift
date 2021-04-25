@@ -72,7 +72,7 @@ final class CustomNavigationBar: UIView, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-   
+        
         bottomAnchortTextField.constant =  -110 + (200 - self.frame.height)
         trailingAnchorTextField.constant = -15
         addingSearchController()
@@ -119,13 +119,13 @@ final class CustomNavigationBar: UIView, UITextFieldDelegate {
         }
     }
     
-//    func removeSearchController() {
-//        if let searchController = searchController, let controller = controller {
-//            controller.willMove(toParent: nil)
-//            controller.view.willRemoveSubview(searchController.tableView)
-//            controller.removeFromParent()
-//        }
-//    }
+    //    func removeSearchController() {
+    //        if let searchController = searchController, let controller = controller {
+    //            controller.willMove(toParent: nil)
+    //            controller.view.willRemoveSubview(searchController.tableView)
+    //            controller.removeFromParent()
+    //        }
+    //    }
     
     @objc  func cancel() {
         
@@ -136,7 +136,7 @@ final class CustomNavigationBar: UIView, UITextFieldDelegate {
         searchController?.tableView.alpha = 0
         
         if self.frame.height != 120 {
-        
+            
             setupAlphaBackgroundView(alpha: 0)
             
             UIView.animate(withDuration: 0.3) {
@@ -155,8 +155,6 @@ final class CustomNavigationBar: UIView, UITextFieldDelegate {
         }
         
     }
-    
-    
     
     func setupConstraint() {
         
