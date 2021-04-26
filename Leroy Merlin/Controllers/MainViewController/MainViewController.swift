@@ -86,40 +86,28 @@ final class MainViewController: UIViewController, UITableViewDelegate, UITableVi
             heightAnchorNavigationBar.constant = 220 - (scrollView.contentOffset.y + 220)
             customNavigationBar.setupAlpha(alpha: pow(const, 8))
             customNavigationBar.setupAlphaBackgroundView(alpha: 0)
-        } else if scrollView.contentOffset.y > -120 {
+        } else if scrollView.contentOffset.y >= -120 {
             heightAnchorNavigationBar.constant = 120
             customNavigationBar.setupAlpha(alpha: 0)
             customNavigationBar.setupAlphaBackgroundView(alpha: 1)
         }
         
     }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                               withVelocity velocity: CGPoint,
+                               targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        if scrollView.contentOffset.y > -220 && scrollView.contentOffset.y < -150{
-            heightAnchorNavigationBar.constant = 220
-            animatecustomNavigationBar(constant: 220)
-        } else if scrollView.contentOffset.y >= -150 && scrollView.contentOffset.y < -100{
-            heightAnchorNavigationBar.constant = 120
-            animatecustomNavigationBar(constant: 120)
+        if velocity.y == 0 {
+            if scrollView.contentOffset.y > -220 && scrollView.contentOffset.y < -150{
+                targetContentOffset.pointee = CGPoint(x: 0, y: -220)
+            } else if scrollView.contentOffset.y >= -150 && scrollView.contentOffset.y < -100{
+                targetContentOffset.pointee = CGPoint(x: 0, y: -120)
+            }
         }
         
     }
-    
-    func animatecustomNavigationBar(constant: CGFloat ) {
-        
-        let alpha: CGFloat = constant != 220 ? 0 : 1
-        
-        UIView.animate(withDuration: 0.2) {
-            self.customNavigationBar.setupAlpha(alpha: alpha)
-            self.view.layoutIfNeeded()
-            self.tableView.contentOffset = CGPoint(x: 0, y: -constant)
-        } completion: { _ in
-            self.customNavigationBar.setupAlphaBackgroundView(alpha: alpha == 0 ? 1 : 0)
-        }
-        
-    }
-    
+
     private func createCellModels() -> [TableViewCellModel] {
         
         guard let dataTemplate  = dataTemplate else {
